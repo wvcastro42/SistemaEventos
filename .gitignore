@@ -1,0 +1,6 @@
+
+federal_eventos/core/__pycache__/
+
+federal_eventos/core/migrations/__pycache__/
+
+*.pyc
