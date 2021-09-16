@@ -6,7 +6,7 @@ class Usuario(models.Model):
     tipo = models.CharField(max_length=50, default='Admin')
     password = models.CharField(max_length=16)
     email = models.CharField(max_length=250)
-    created = models.DatetimeField(auto_now=True)
+    created = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.nome
@@ -21,7 +21,7 @@ class Ouvinte(models.Model):
     cpf = models.CharField(max_length=10, blank=True)
     password = models.CharField(max_length=16, blank=True)
     confirmado = models.BooleanField(null=True)
-    created = models.DatetimeField(auto_now=True)
+    created = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.nome
