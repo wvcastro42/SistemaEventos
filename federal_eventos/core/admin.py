@@ -18,9 +18,10 @@ class PalestranteAdmin(admin.ModelAdmin):
 
 @admin.register(Evento)
 class EventoAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'data_inicial', 'data_final', 'created', 'updated')
+    list_display = ('nome', 'descricao', 'slug', 'data_inicial', 'data_final', 'created', 'updated')
+    prepopulated_fields = {'slug': ('nome',)}
 
 
 @admin.register(Atracao)
 class AtracaoAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'palestrante', 'atração', 'evento', 'data', 'local', 'created', 'updated') 
+    list_display = ('nome', 'palestrante', 'descricao', 'atração', 'evento', 'data', 'local', 'created', 'updated') 

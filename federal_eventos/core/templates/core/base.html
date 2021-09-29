@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/core.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>This is the BASE HTML page listing all Events.</h1>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+</body>
+
+</html>

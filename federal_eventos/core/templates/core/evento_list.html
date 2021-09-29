@@ -1,0 +1,46 @@
+{% extends "core/base.html" %}
+
+{% block title %} Meus Eventos {% endblock %}
+
+
+{% block content %}
+
+    {% for evento in evento_list %}
+
+        <article>
+            <a href="{{ evento.get_absolute_url }}">
+                {{evento.nome}}
+            </a>
+
+            <p>
+                Descrição: {{ evento.descricao }}
+            </p>
+
+            <p class="date">
+                Data início - {{ evento.data_inicial }} | Data fim - {{ evento.data_final }}
+            </p>
+
+            <p>
+                {{evento.atração.objects.all}}
+            </p>
+            <h5>
+                <a href="{{ evento.get_absolute_url }}">
+                    Clique aqui para maiores informações do evento {{evento.nome}}
+                </a>
+            </h5>
+
+            <div>
+                {% for atracao in evento.atracao_set.all %}
+                    <p> Atração: {{atracao}} </p>
+                {% endfor %}
+            <p> ___________________________________________________________________________________ </p>
+            </div>
+
+            
+        </article>
+
+    {% endfor %}
+
+{% endblock %}
+
+
