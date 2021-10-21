@@ -1,10 +1,5 @@
 from django.contrib import admin
-from .models import Palestrante, Usuario, Ouvinte, Evento, Atracao
-
-@admin.register(Usuario)
-class UserAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'email', 'created', 'updated')
-
+from .models import Palestrante, Ouvinte, Evento, Atracao
 
 @admin.register(Ouvinte)
 class OuvinteAdmin(admin.ModelAdmin):

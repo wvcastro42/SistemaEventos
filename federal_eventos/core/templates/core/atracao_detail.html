@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+
+{% block title %} {{ atracao.nome }} {% endblock %}
+
+{% block content %}
+
+    <h3>{{ atracao.nome }}</h3>
+    <p>Descrição: {{ atracao.descricao }}</p>
+    <p>Palestrante: {{ atracao.palestrante }}</p>
+    <p class='date'>Local: {{ atracao.local }} - Data: {{ atracao.data }} </p>
+
+
+
+{% endblock%}
+

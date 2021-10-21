@@ -5,19 +5,30 @@
 {% block content %}
 
     <h2>{{ evento.nome }} - Aqui estou mostrando um único Evento e seus detalhes </h2>
+   
     <p>
         Descrição: {{ evento.descricao }}
     </p>
+
     <p class="date">
         Data início - {{ evento.data_inicial }} | Data fim - {{ evento.data_final }}
     </p>
-    <p>
-        <!-- TENTAR PUXAR ATRAÇÕES AQUI-->
-    </p>
-    {{ evento.nome|linebreaks }}
 
     <p>
-        <a href="/core/">Voltar para lista de eventos</a>
+        <div>
+            <p>Atrações: </p>
+            {% for atracao in evento.atracao_set.all %}
+                <ul>
+                    <li>
+                        <a href="{% url 'core:detail-atracao' pk=atracao.id %}">{{atracao}}</a> 
+                    </li>
+                </ul>
+                
+            {% endfor %}
+        </div>
     </p>
 
+    <input type="submit" onclick="location.href= '/core/'" value="Voltar">
+        <!-- <a href="/core/">Voltar para lista de eventos</a>
+    </p> -->
 {% endblock%}
