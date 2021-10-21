@@ -27,8 +27,8 @@
             {% endfor %}
         </div>
     </p>
-
-    <input type="submit" onclick="location.href= '/core/'" value="Voltar">
-        <!-- <a href="/core/">Voltar para lista de eventos</a>
-    </p> -->
+    <a href="{% url 'core:update' pk=evento.pk %}">Editar {{evento.nome}}</a>
+    <a href= '/core/'>Voltar</a>
+    
+    
 {% endblock%}

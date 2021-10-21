@@ -1,8 +1,10 @@
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, CreateView, DeleteView
+from django.views.generic.edit import UpdateView
+from django.shortcuts import render
 from .models import Evento, Atracao
 from django.http import HttpResponse
-import datetime
 from django.urls import reverse_lazy
+import datetime
 
 
 class EventoListView(ListView):
@@ -13,9 +15,22 @@ class EventoDetailView(DetailView):
     model = Evento
 
 
+class EventoCreateView(CreateView):
+    model = Evento
+    fields = '__all__'
+    success_url = reverse_lazy('core:detail')
+
+
+class EventoUpdateView(UpdateView):
+    model = Evento
+    fields = '__all__'
+    success_url = reverse_lazy('core:list')
+
+
 class AtracaoDetailView(DetailView):
     model = Atracao
     success_url = reverse_lazy('core:detail-atracao')
+
 
 def current_datetime(request):
     now = datetime.datetime.now().strftime('%d-%m-%Y %H:%M')
