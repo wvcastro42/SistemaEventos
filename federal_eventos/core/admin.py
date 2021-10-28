@@ -23,4 +23,4 @@ class AtracaoAdmin(admin.ModelAdmin):
 
 @admin.register(Inscricao)
 class InscricaoAdmin(admin.ModelAdmin):
-    list_display = ('ouvinte', 'atracao')
+    list_display = ('ouvinte', 'atracao', 'unique_id')
