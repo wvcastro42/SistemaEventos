@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'federal_eventos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'eventos',
+        'NAME': 'banco_eventos',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',

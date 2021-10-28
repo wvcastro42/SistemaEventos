@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Palestrante, Ouvinte, Evento, Atracao
+from .models import Inscricao, Palestrante, Ouvinte, Evento, Atracao
 
 @admin.register(Ouvinte)
 class OuvinteAdmin(admin.ModelAdmin):
@@ -20,3 +20,7 @@ class EventoAdmin(admin.ModelAdmin):
 @admin.register(Atracao)
 class AtracaoAdmin(admin.ModelAdmin):
     list_display = ('nome', 'palestrante', 'descricao', 'atração', 'evento', 'data', 'local', 'created', 'updated') 
+
+@admin.register(Inscricao)
+class InscricaoAdmin(admin.ModelAdmin):
+    list_display = ('ouvinte', 'atracao')

@@ -53,6 +53,7 @@ class Evento(models.Model):
 
 
 class Atracao(models.Model):
+    
     # CRIAR HASH
     # imagem da atração?
     customer_types = (
@@ -87,3 +88,12 @@ class Atracao(models.Model):
         verbose_name = 'Atração'
         verbose_name_plural = 'Atrações'
         ordering = ("-created",)
+
+
+class Inscricao(models.Model):
+    atracao = models.ForeignKey(Atracao, on_delete=models.CASCADE, related_name="incricoes")
+    ouvinte = models.ForeignKey(Ouvinte, on_delete=models.CASCADE, related_name="ouvintes")
+   
+    def __str__(self):
+        return f'{self.ouvinte.nome} - {self.atracao.nome}'
+
