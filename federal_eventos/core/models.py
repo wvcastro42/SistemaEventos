@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 from django.urls import reverse
 import uuid
 
@@ -91,17 +92,10 @@ class Atracao(models.Model):
         ordering = ("-created",)
 
 
-class MyUUIDModel(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-
-    def __str__(self):
-        return str(self.id)
-
-
 class Inscricao(models.Model):
     atracao = models.ForeignKey(Atracao, on_delete=models.CASCADE, related_name="incricoes")
     ouvinte = models.ForeignKey(Ouvinte, on_delete=models.CASCADE, related_name="ouvintes")
-    unique_id = MyUUIDModel()
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
 
 
     def __str__(self):
