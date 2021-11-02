@@ -1,4 +1,4 @@
-from django.views.generic import DetailView, ListView, CreateView, DeleteView
+from django.views.generic import DetailView, ListView, CreateView, DeleteView, TemplateView
 from django.views.generic.edit import UpdateView
 from django.shortcuts import render
 from .models import Evento, Atracao
@@ -32,9 +32,11 @@ class AtracaoDetailView(DetailView):
     success_url = reverse_lazy('core:detail-atracao')
 
 
-def current_datetime(request):
-    now = datetime.datetime.now().strftime('%d-%m-%Y %H:%M')
-    html = '<html><body>Here is the index page. It is now %s.</body></html>' %now
-    return HttpResponse(html)
+class HomePageView(TemplateView):
+    template_view = "home.html"
 
 
+# def current_datetime(request):
+#     now = datetime.datetime.now().strftime('%d-%m-%Y %H:%M')
+#     html = '<html><body>Here is the index page. It is now %s.</body></html>' %now
+#     return HttpResponse(html)

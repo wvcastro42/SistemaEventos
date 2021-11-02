@@ -18,7 +18,15 @@ from core import views
 from django.urls import include, path
 
 urlpatterns = [
+
+    #django admin
     path('admin/', admin.site.urls),
-    path('', views.current_datetime),
+  
+    # all auth - user management
+    path('accounts/', include('allauth.urls')),
+   
+    # local
     path('core/', include('core.urls', namespace='core')),
+    # path('core/home/', include('core.urls', namespace='home')),
+
 ]

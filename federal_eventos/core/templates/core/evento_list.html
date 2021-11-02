@@ -3,13 +3,19 @@
 {% block title %} Meus Eventos {% endblock %}
 
 {% block content %}
-
+    <br><br>
     {% for evento in evento_list %}
 
         <article>
-            <a href="{{ evento.get_absolute_url }}">
-                {{evento.nome}}
-            </a>
+            <h2>
+                <ul>
+                    <li>
+                        <a href="{{ evento.get_absolute_url }}">
+                            {{evento.nome}}
+                        </a>
+                    </li>
+                </ul>
+            </h2>
 
             <p>
                 Descrição: {{ evento.descricao }}
@@ -24,7 +30,7 @@
             </p>
             
             <div>
-                <h3>Atrações: </h3>
+                <h4>Atrações: </h4>
                 {% for atracao in evento.atracao_set.all %}
                 <ul>
                     <li>
@@ -34,11 +40,11 @@
                 {% endfor %}
             </div>
             
-            <h5>
+            <!-- <h5>
                 <a href="{{ evento.get_absolute_url }}">
                     Clique aqui para maiores informações do evento {{evento.nome}}
                 </a>
-            </h5>
+            </h5> -->
             <p> ________________ </p>
             
         </article>
