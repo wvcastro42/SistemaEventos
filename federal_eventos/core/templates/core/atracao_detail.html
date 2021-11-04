@@ -3,12 +3,19 @@
 {% block title %} {{ atracao.nome }} {% endblock %}
 
 {% block content %}
+    <script>
+        function goBack() {
+            window.history.back()
+        }
+    </script>
 
     <h3>{{ atracao.nome }}</h3>
     <p>Descrição: {{ atracao.descricao }}</p>
     <p>Palestrante: {{ atracao.palestrante }}</p>
     <p class='date'>Local: {{ atracao.local }} - Data: {{ atracao.data }} </p>
 
+    <br>        
+    <button onclick="goBack()">Voltar</button>
 
 {% endblock%}
 

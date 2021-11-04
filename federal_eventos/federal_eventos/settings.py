@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    'crispy_forms',
 
 ]
 
@@ -163,4 +164,4 @@ LOGOUT_REDIRECT_URL = "/"
 
 # # crispy-forms
 
-# CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"

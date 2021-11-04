@@ -27,6 +27,6 @@ urlpatterns = [
    
     # local
     path('core/', include('core.urls', namespace='core')),
-    # path('core/home/', include('core.urls', namespace='home')),
+    path('', include('core.urls', namespace='home')),
 
 ]
