@@ -35,8 +35,3 @@ class AtracaoDetailView(DetailView):
 class HomePageView(TemplateView):
     template_view = "home.html"
 
-
-# def current_datetime(request):
-#     now = datetime.datetime.now().strftime('%d-%m-%Y %H:%M')
-#     html = '<html><body>Here is the index page. It is now %s.</body></html>' %now
-#     return HttpResponse(html)

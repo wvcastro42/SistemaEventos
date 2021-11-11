@@ -3,6 +3,11 @@
 {% block title %} {{ evento.nome }} {% endblock %}
 
 {% block content %}
+    <script>
+        function goBack() {
+            window.history.back()
+        }
+    </script>
 
     <h2>{{ evento.nome }} - Aqui estou mostrando um único Evento e seus detalhes </h2>
    
@@ -27,8 +32,7 @@
             {% endfor %}
         </div>
     </p>
-    <!-- <a href="{% url 'core:update' pk=evento.pk %}">Editar {{evento.nome}}</a> -->
-    <a href= '/core/'>Voltar</a>
+    <button type="button" class="btn btn-secondary" onclick="goBack()">Voltar</button>
     
     
 {% endblock%}
