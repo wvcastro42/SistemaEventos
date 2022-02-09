@@ -3,7 +3,7 @@ from .models import Inscricao, Palestrante, Ouvinte, Evento, Atracao
 
 @admin.register(Ouvinte)
 class OuvinteAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'email', 'created', 'updated')
+    list_display = ('usuario', 'created', 'updated')
 
 
 @admin.register(Palestrante)

@@ -1,19 +1,21 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
 from django.urls import reverse
 import uuid
 
 class Ouvinte(models.Model):
-    nome = models.CharField(max_length=150)
+    # nome = models.CharField(max_length=150)
+    usuario = models.OneToOneField(User, on_delete=models.SET_NULL, blank=True, null=True)
     cpf = models.CharField(max_length=11, blank=True)
-    password = models.CharField(max_length=16, blank=True)
-    email = models.CharField(max_length=249, default=None)
+    # password = models.CharField(max_length=16, blank=True)
+    email = models.CharField(max_length=249, default=None, blank=True, null=True)
     confirmado = models.BooleanField(null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.nome
+        return str(self.usuario.username)
 
     class Meta:
         verbose_name = 'Ouvinte'
@@ -38,25 +40,24 @@ class Evento(models.Model):
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    # atracoes = models.on
-    # CRIAR HASH
-    #criar imagem do evento?
+
 
     def __str__(self):
         return self.nome
+
 
     class Meta:
         verbose_name = 'Evento'
         verbose_name_plural = 'Eventos'
         ordering = ("-created",)
     
+
     def get_absolute_url(self):
         return reverse("core:detail", kwargs={'slug': self.slug})
 
 
 class Atracao(models.Model):
     
-    # CRIAR HASH
     # imagem da atração?
     customer_types = (
         (1,'Palestra'),
@@ -99,7 +100,7 @@ class Inscricao(models.Model):
 
 
     def __str__(self):
-        return f'{self.ouvinte.nome} - {self.atracao.nome}'
+        return f'{self.ouvinte.usuario.username} - {self.atracao.nome}'
 
 
 
